@@ -1,3 +1,8 @@
 import { createContext } from "react";
 
-export const CountContext = createContext(0);
+const defaultValue = {
+    count: 0,
+    setCount: () => {}
+};
+
+export const CountContext = createContext(defaultValue); // create a context with a default value object

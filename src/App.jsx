@@ -10,25 +10,25 @@ function App() {
   //wrap the Count component with CountContext.Provider
   return (
     <>
-      <CountContext.Provider value={count} >
-        <Count setCount={setCount}></Count>
+      <CountContext.Provider value={{count,setCount}} >
+        <Count></Count>
       </CountContext.Provider>
     </>
   )
 }
 
-function Count({ count, setCount }) {
+function Count() {
 
   return(
     <>
         <Countrender></Countrender>
-        <Button setCount={setCount} ></Button> 
+        <Button></Button> 
     </>
   )
 }
 
 function Countrender() {
-  const count = useContext(CountContext);
+  const {count,setCount} = useContext(CountContext);
   return (
     <div>
       <p>{count}</p>
@@ -36,8 +36,8 @@ function Countrender() {
   )
 }
 
-function Button({setCount}) {
-  const count = useContext(CountContext);
+function Button() {
+  const {count,setCount} = useContext(CountContext);
   return (
     <div>
       <button onClick={() => setCount( count + 1)}>Increment</button>
